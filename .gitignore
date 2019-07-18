@@ -1,0 +1,10 @@
+
+# intellij
+/.idea
+
+# gradle
+/.gradle
+/build
+
+# companies api
+/companies-api

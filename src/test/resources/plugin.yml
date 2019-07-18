@@ -1,0 +1,41 @@
+name: Companies
+main: com.sxtanna.mc.companies.mock.MockPlugin
+
+author: Sxtanna
+
+version: '1.0'
+api-version: '1.13'
+
+website: 'https://gh.sxtanna.com'
+
+description: 'Provides players with the ability to create and manage companies to sell items.'
+
+commands:
+  company:
+    description: 'Open the main companies menu'
+    aliases: [companies, comp]
+    permission: companies.users.main
+  companyadmin:
+    description: 'Main command for administration'
+    aliases: [compadmin]
+    permission: companies.admin.main
+
+
+
+permissions:
+  companies.*:
+    description: 'Gives access to all companies commands'
+    children:
+      companies.users.*: true
+      companies.admin.*: true
+  companies.users.*:
+    description: 'Gives access to all companies commands for users'
+    children:
+      companies.users.main:
+        description: 'Allows players to open the main companies menu'
+  companies.admin.*:
+    description: 'Gives access to all companies commands for admins'
+    children:
+      companies.users.*: true
+      companies.admin.main:
+        description: 'Main command for administration'

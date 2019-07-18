@@ -1,0 +1,3 @@
+rootProject.name = 'companies'
+include 'companies-api'
+
