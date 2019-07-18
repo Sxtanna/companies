@@ -3,7 +3,6 @@ package com.sxtanna.mc.companies.data;
 import com.sxtanna.mc.companies.core.Company;
 import com.sxtanna.mc.companies.core.Product;
 import com.sxtanna.mc.companies.core.Staffer;
-import com.sxtanna.mc.companies.data.base.DatabaseType;
 import com.sxtanna.mc.companies.data.core.CompanyDatabase;
 import com.sxtanna.mc.companies.data.core.ProductDatabase;
 import com.sxtanna.mc.companies.data.core.StafferDatabase;

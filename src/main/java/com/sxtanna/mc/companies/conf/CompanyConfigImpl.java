@@ -1,7 +1,7 @@
 package com.sxtanna.mc.companies.conf;
 
 import com.sxtanna.mc.companies.conf.type.CompanyConfig;
-import com.sxtanna.mc.companies.data.base.DatabaseType;
+import com.sxtanna.mc.companies.data.DatabaseType;
 import com.sxtanna.mc.companies.util.Helper;
 import org.bukkit.Material;
 import org.bukkit.configuration.InvalidConfigurationException;

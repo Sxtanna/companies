@@ -1,6 +1,5 @@
 package com.sxtanna.mc.companies.data;
 
-import com.sxtanna.mc.companies.data.base.DatabaseType;
 import com.sxtanna.mc.companies.data.type.NameDatabase;
 import com.sxtanna.mc.companies.util.Format;
 import org.bukkit.plugin.Plugin;

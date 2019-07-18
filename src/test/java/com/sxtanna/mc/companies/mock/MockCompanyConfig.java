@@ -1,7 +1,7 @@
 package com.sxtanna.mc.companies.mock;
 
 import com.sxtanna.mc.companies.conf.type.CompanyConfig;
-import com.sxtanna.mc.companies.data.base.DatabaseType;
+import com.sxtanna.mc.companies.data.DatabaseType;
 import org.bukkit.Material;
 import org.bukkit.plugin.Plugin;
 

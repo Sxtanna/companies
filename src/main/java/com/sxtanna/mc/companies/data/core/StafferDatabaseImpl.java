@@ -2,7 +2,7 @@ package com.sxtanna.mc.companies.data.core;
 
 import com.sxtanna.mc.companies.Companies;
 import com.sxtanna.mc.companies.core.Staffer;
-import com.sxtanna.mc.companies.data.base.DatabaseType;
+import com.sxtanna.mc.companies.data.DatabaseType;
 import org.bukkit.plugin.Plugin;
 
 import java.util.Collection;
