@@ -22,6 +22,8 @@ import com.sxtanna.mc.companies.data.core.StafferDatabaseImpl;
 import com.sxtanna.mc.companies.data.type.DataDatabase;
 import com.sxtanna.mc.companies.data.type.NameDatabase;
 import com.sxtanna.mc.companies.data.util.Cache;
+import com.sxtanna.mc.companies.lang.Lang;
+import com.sxtanna.mc.companies.lang.Messages;
 import com.sxtanna.mc.companies.spigot.base.Hooks;
 import com.sxtanna.mc.companies.util.Helper;
 import org.bukkit.entity.Player;
@@ -79,6 +81,11 @@ public final class CompaniesImpl implements Companies
 	@Override
 	public void load()
 	{
+		for (final Messages key : Messages.values())
+		{
+			messageConfig().getCustomLangValue(key).ifPresent(val -> Lang.load(key, val));
+		}
+
 		State.attemptLoad(this.names, exception -> getPlugin().getLogger().log(Level.SEVERE, "Failed to load Database[" + this.names + "]", exception));
 		State.attemptLoad(this.datas, exception -> getPlugin().getLogger().log(Level.SEVERE, "Failed to load Database[" + this.datas + "]", exception));
 
@@ -94,6 +101,8 @@ public final class CompaniesImpl implements Companies
 	@Override
 	public void kill()
 	{
+		Lang.kill();
+
 		cache.stafferCache().forEach(Staffer::kill);
 		cache.companyCache().forEach(Company::kill);
 
