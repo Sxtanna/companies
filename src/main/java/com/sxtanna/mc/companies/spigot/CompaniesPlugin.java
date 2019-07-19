@@ -4,7 +4,9 @@ import com.sxtanna.mc.companies.Companies;
 import com.sxtanna.mc.companies.CompaniesImpl;
 import com.sxtanna.mc.companies.base.State;
 import com.sxtanna.mc.companies.conf.CompanyConfigImpl;
+import com.sxtanna.mc.companies.conf.MessageConfigImpl;
 import com.sxtanna.mc.companies.conf.type.CompanyConfig;
+import com.sxtanna.mc.companies.conf.type.MessageConfig;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,12 +21,13 @@ public final class CompaniesPlugin extends JavaPlugin
 	@Override
 	public void onLoad()
 	{
-		CompanyConfig conf;
+		final CompanyConfig companyConfig;
+		final MessageConfig messageConfig;
 
 		try
 		{
-			conf = new CompanyConfigImpl(this);
-			conf.load();
+			companyConfig = new CompanyConfigImpl(this);
+			companyConfig.load();
 		}
 		catch (Exception ex)
 		{
@@ -32,8 +35,21 @@ public final class CompaniesPlugin extends JavaPlugin
 			return;
 		}
 
-		this.companies = new CompaniesImpl(this, conf);
+		try
+		{
+			messageConfig = new MessageConfigImpl(this);
+			messageConfig.load();
+		}
+		catch (Exception ex)
+		{
+			getLogger().log(Level.SEVERE, "Failed to load MessageConfig", ex);
+			return;
+		}
+
+
+		this.companies = new CompaniesImpl(this, companyConfig, messageConfig);
 	}
+
 
 	@Override
 	public void onEnable()

@@ -2,6 +2,7 @@ package com.sxtanna.mc.companies;
 
 import com.sxtanna.mc.companies.base.State;
 import com.sxtanna.mc.companies.conf.type.CompanyConfig;
+import com.sxtanna.mc.companies.conf.type.MessageConfig;
 import com.sxtanna.mc.companies.conf.type.MySQLDBConfig;
 //import com.sxtanna.mc.companies.conf.type.RedisDBConfig;
 import com.sxtanna.mc.companies.core.Company;
@@ -36,7 +37,10 @@ public final class CompaniesImpl implements Companies
 {
 
 	private final Plugin plugin;
-	private final CompanyConfig config;
+
+
+	private final CompanyConfig companyConfig;
+	private final MessageConfig messageConfig;
 
 
 	private final NameDatabase names;
@@ -47,17 +51,19 @@ public final class CompaniesImpl implements Companies
 	private final Hooks hooks = new Hooks(this);
 
 
-	public CompaniesImpl(final Plugin plugin, final CompanyConfig config)
+	public CompaniesImpl(final Plugin plugin, final CompanyConfig companyConfig, final MessageConfig messageConfig)
 	{
 		this.plugin = plugin;
-		this.config = config;
+
+		this.companyConfig = companyConfig;
+		this.messageConfig = messageConfig;
 
 
 		this.names = new NameDatabaseImpl(plugin);
 
-		final CompanyDatabase company = CompanyDatabaseImpl.get(this, config.getCompanyDatabaseType());
-		final ProductDatabase product = ProductDatabaseImpl.get(this, config.getProductDatabaseType());
-		final StafferDatabase staffer = StafferDatabaseImpl.get(this, config.getStafferDatabaseType());
+		final CompanyDatabase company = CompanyDatabaseImpl.get(this, companyConfig.getCompanyDatabaseType());
+		final ProductDatabase product = ProductDatabaseImpl.get(this, companyConfig.getProductDatabaseType());
+		final StafferDatabase staffer = StafferDatabaseImpl.get(this, companyConfig.getStafferDatabaseType());
 
 		this.datas = new DataDatabaseImpl(plugin, company, product, staffer);
 	}
@@ -100,9 +106,15 @@ public final class CompaniesImpl implements Companies
 
 
 	@Override
-	public CompanyConfig config()
+	public CompanyConfig companyConfig()
 	{
-		return this.config;
+		return companyConfig;
+	}
+
+	@Override
+	public MessageConfig messageConfig()
+	{
+		return messageConfig;
 	}
 
 

@@ -3,6 +3,7 @@ package com.sxtanna.mc.companies.mock;
 import be.seeseemelk.mockbukkit.UnimplementedOperationException;
 import com.sxtanna.mc.companies.Companies;
 import com.sxtanna.mc.companies.conf.type.CompanyConfig;
+import com.sxtanna.mc.companies.conf.type.MessageConfig;
 import com.sxtanna.mc.companies.conf.type.MySQLDBConfig;
 import com.sxtanna.mc.companies.core.Company;
 import com.sxtanna.mc.companies.core.CompanyImpl;
@@ -22,12 +23,16 @@ public final class MockCompanies implements Companies
 {
 
 	private final Plugin plugin;
-	private final CompanyConfig config;
 
-	MockCompanies(final Plugin plugin, final CompanyConfig config)
+	private final CompanyConfig companyConfig;
+	private final MessageConfig messageConfig;
+
+	MockCompanies(final Plugin plugin, final CompanyConfig companyConfig, final MessageConfig messageConfig)
 	{
 		this.plugin = plugin;
-		this.config = config;
+
+		this.companyConfig = companyConfig;
+		this.messageConfig = messageConfig;
 	}
 
 
@@ -38,11 +43,16 @@ public final class MockCompanies implements Companies
 	}
 
 	@Override
-	public CompanyConfig config()
+	public CompanyConfig companyConfig()
 	{
-		return config;
+		return companyConfig;
 	}
 
+	@Override
+	public MessageConfig messageConfig()
+	{
+		return messageConfig;
+	}
 
 	@Override
 	public void load()

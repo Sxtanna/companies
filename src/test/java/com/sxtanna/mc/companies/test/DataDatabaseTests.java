@@ -3,7 +3,6 @@ package com.sxtanna.mc.companies.test;
 import com.sxtanna.mc.companies.base.MockedTest;
 import com.sxtanna.mc.companies.core.Company;
 import com.sxtanna.mc.companies.core.Staffer;
-import com.sxtanna.mc.companies.core.StafferImpl;
 import com.sxtanna.mc.companies.data.DataDatabaseImpl;
 import com.sxtanna.mc.companies.data.core.CompanyDatabase;
 import com.sxtanna.mc.companies.data.core.CompanyDatabaseImpl;
@@ -98,17 +97,17 @@ public final class DataDatabaseTests extends MockedTest
 
 	private CompanyDatabase createCompanyDatabase()
 	{
-		return CompanyDatabaseImpl.get(companies, companies.config().getCompanyDatabaseType());
+		return CompanyDatabaseImpl.get(companies, companies.companyConfig().getCompanyDatabaseType());
 	}
 
 	private ProductDatabase createProductDatabase()
 	{
-		return ProductDatabaseImpl.get(companies, companies.config().getProductDatabaseType());
+		return ProductDatabaseImpl.get(companies, companies.companyConfig().getProductDatabaseType());
 	}
 
 	private StafferDatabase createStafferDatabase()
 	{
-		return StafferDatabaseImpl.get(companies, companies.config().getStafferDatabaseType());
+		return StafferDatabaseImpl.get(companies, companies.companyConfig().getStafferDatabaseType());
 	}
 
 }

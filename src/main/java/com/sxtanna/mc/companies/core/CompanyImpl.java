@@ -5,7 +5,6 @@ import com.sxtanna.mc.companies.util.Helper;
 import org.bukkit.Material;
 import org.bukkit.plugin.Plugin;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -40,7 +39,7 @@ public final class CompanyImpl implements Company
 
 	public CompanyImpl(final Companies companies)
 	{
-		this(companies, Company.DEFAULT_UUID, Staffer.DEFAULT_UUID, Company.DEFAULT_NAME, companies.config().getDefaultCompanyIcon());
+		this(companies, Company.DEFAULT_UUID, Staffer.DEFAULT_UUID, Company.DEFAULT_NAME, companies.companyConfig().getDefaultCompanyIcon());
 	}
 
 
