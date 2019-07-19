@@ -7,7 +7,10 @@ public enum Messages implements LangKey
 
 	COMPANY_JOIN_STAFFER("You have joined {company_name}."),
 
-	COMPANY_JOIN_COMPANY("{staffer_name} has joined the company.");
+	COMPANY_JOIN_COMPANY("{staffer_name} has joined the company."),
+
+	PLAYER_JOIN_SERVER("[+] {player_name}!"),
+	PLAYER_QUIT_SERVER("[-] {player_name}!");
 
 
 	private final String value;
