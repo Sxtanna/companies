@@ -355,7 +355,7 @@ public abstract class CompanyDatabaseImpl implements CompanyDatabase
 	private interface SQLConstants
 	{
 
-		String CREATE_STATEMENT = "CREATE TABLE IF NOT EXISTS `company`(`uuid` CHAR(32), `name` VARCHAR(32)) PRIMARY KEY `uuid`";
+		String CREATE_STATEMENT = "CREATE TABLE IF NOT EXISTS `company`(`uuid` CHAR(32) PRIMARY KEY, `name` VARCHAR(32))";
 		String INSERT_STATEMENT = "INSERT INTO `company`(`uuid`, `name`) VALUES (?, ?) ON DUPLICATE KEY UPDATE `uuid`=VALUES(`uuid`), `name`=VALUES(`name`)";
 
 
