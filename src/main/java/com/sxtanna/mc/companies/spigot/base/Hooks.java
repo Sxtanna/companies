@@ -7,6 +7,7 @@ import com.sxtanna.mc.companies.spigot.command.impl.CommandCompanyAdmin;
 import com.sxtanna.mc.companies.spigot.command.impl.CommandCompanyUsers;
 import com.sxtanna.mc.companies.spigot.watcher.base.Watcher;
 import com.sxtanna.mc.companies.spigot.watcher.impl.JoinWatcher;
+import com.sxtanna.mc.companies.spigot.watcher.impl.TempWatcher;
 import com.sxtanna.mc.companies.util.Helper;
 
 import java.util.Set;
@@ -25,6 +26,7 @@ public final class Hooks implements State
 
 		// watchers
 		watchers.add(new JoinWatcher(companies));
+		watchers.add(new TempWatcher(companies));
 	}
 
 
