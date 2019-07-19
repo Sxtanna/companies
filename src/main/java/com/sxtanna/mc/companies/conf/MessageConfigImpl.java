@@ -1,7 +1,9 @@
 package com.sxtanna.mc.companies.conf;
 
 import com.sxtanna.mc.companies.conf.type.MessageConfig;
+import com.sxtanna.mc.companies.lang.Messages;
 import com.sxtanna.mc.companies.lang.base.LangKey;
+import com.sxtanna.mc.companies.util.Helper;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -14,7 +16,6 @@ import java.util.logging.Level;
 
 public final class MessageConfigImpl implements MessageConfig
 {
-
 
 	private final Plugin plugin;
 	private final File confFile;
@@ -64,7 +65,17 @@ public final class MessageConfigImpl implements MessageConfig
 	{
 		getPlugin().getLogger().info("Saving default MessageConfig");
 
-		// todo write code for saving values from com.sxtanna.mc.companies.lang.Messages
+		if (confData == null)
+		{
+			confData = new YamlConfiguration();
+		}
+
+		for (final Messages key : Messages.values())
+		{
+			confData.set(key.getName().toLowerCase().replace('_', '.'), key.getDefaultValue());
+		}
+
+		Helper.ignoreException(() -> this.confData.save(Helper.ensureExists(getFile())));
 	}
 
 
